@@ -8,14 +8,13 @@ def save_tasks(tasks: list, filename: str):
     for task in tasks:
         data.append(task.to_dict())
 
-
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
+
 
 def load_tasks(filename: str) -> list:
     if not os.path.exists(filename):
         return []
-
 
     with open(filename, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -23,4 +22,4 @@ def load_tasks(filename: str) -> list:
         tasks = []
         for item in data:
             tasks.append(Task.from_dict(item))
-        return  tasks
+        return tasks

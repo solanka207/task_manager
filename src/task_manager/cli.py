@@ -1,11 +1,6 @@
-from audioop import reverse
-from pickle import PROTO
-
 from .services import add_task, get_tasks_by_status, sort_tasks
 from .storage import save_tasks, load_tasks
 from .utils import validate_status
-
-
 
 FILENAME = "data,json"
 
@@ -26,7 +21,7 @@ def run_cli():
 
         if choice == "1":
             title = input()
-            tasks = add_task(tasks,title)
+            tasks = add_task(tasks, title)
 
         elif choice == "2":
             for task in tasks:
